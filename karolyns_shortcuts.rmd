@@ -1,0 +1,91 @@
+---
+title: "Karolyn's Shortcuts"
+author: "Karolyn Ismay<br>PhD Candidate, Pacific University"
+date: "7/2/2019"
+output: html_document
+# use a hashtag to write comments in this "YAML" section and the setup chunk. 
+# use `<!--` and `-->` for markdown comments (anything below the setup chunk)
+# keep lines to 80 characters. just start a new line with a new hashtag.
+# YAML stands for YAML Ain't Markup Language. commonly used for metadata.
+# you can change the above green character strings at will.
+# you can insert a new line or a break in the character string with <br>
+---
+
+```{r setup, include=FALSE}
+# don't write anything on line 8, it has to be lonely up there. it has to start
+# and end in {}s on line 8 only. also, the ``` means the start or end of a chunk. # r stands for R
+# setup stands for the name of the chunk, don't use spaces, use -s
+# everything after the comma are called Chunk Options
+# you can tell you're in a chunk with the grey highlighting
+
+# if you want more info on rmarkdown go to rbasics.netlify.com
+
+# using the"#" in a chunk is for commenting. this is not the same as the
+# commenting in markdown which opens with "<!--" and closes with "--!>"
+# "include=FALSE" means that markdown will not show that part in the knitted 
+# file.
+
+sum_of_numbers <- 2 + 3
+# just above I've created `sum_of_numbers` and I have assigned it as an object with the `<-` operator and told it store `2 + 3`. Since this code is in a chunk that is `include=FALSE` it will not show up in the knitted document but it is accessible to the rest of the document to call upon. it's just waiting in the background without the document reader knowing it. I use this to call `r sum_of_numbers` inline below. It returns "5".
+
+knitr::opts_chunk$set(echo = TRUE)
+# "echo=TRUE" means that all chunks below this will be "echoed" as "TRUE" and 
+# will show in the knitted file.
+```
+
+## Introduction
+
+the sum of the two numbers is `r sum_of_numbers`.
+
+This is my list of shortcuts. I'll add shortcuts as I learn them 
+
+To create a header, type ## Header Name.
+
+<!-- this is used for commenting in Markdown. it must be closed with this: -->
+<!-- to insert some code into a comment use ` or ```. A single backtick is for <!-- inline code while a triple backtick is for chunks of code -->
+
+In R things are case sensitive
+In R TRUE and FALSE must be in all caps. they are their own things
+
+## Using R Markdown
+
+If R Markdown is not knitting or is getting stuck, check the "R Markdown" tab, which is usually located in the same pane as the Console. Click the R Markdown tab and scroll up. You'll see the different chunks as they knit and you can see the first chunk that is causing issues. This will give you a starting place to debug.
+
+`echo=TRUE` will show the code and the output
+`echo=FALSE` will only show the output, not the code
+`include=FALSE` will not show code nor output but will run things in the background
+`include=TRUE` is the default where it will show the code, output and runs the code
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+<!-- if you want to create a link, use less than, greater than `<http://link.com>` -->
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+<!-- to make text bold, either use two * or _ without spaces
+<!-- example: **bold this** but not ** bold this **
+-->
+
+```{r cars}
+summary(cars)
+```
+```{r summary-notes, echo = FALSE}
+# summary() will give you a five number summary similar to descriptive stats
+# for each variable in the (dataframe) in this case for (cars).
+# because echo=TRUE is set in setup chunk therefore this chunk is defaulted to 
+# echo=TRUE and we don't have to type it out so we see the code and the output
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Contact Info
+<https://github.com/kismay>
